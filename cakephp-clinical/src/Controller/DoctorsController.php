@@ -33,7 +33,7 @@ class DoctorsController extends AppController
     public function view($id = null)
     {
         $doctor = $this->Doctors->get($id, [
-            'contain' => ['Appointpents'],
+            'contain' => ['Appointments'],
         ]);
 
         $this->set(compact('doctor'));

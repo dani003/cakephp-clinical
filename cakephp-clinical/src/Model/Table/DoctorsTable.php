@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Doctors Model
  *
- * @property \App\Model\Table\AppointpentsTable&\Cake\ORM\Association\HasMany $Appointpents
+ * @property \App\Model\Table\AppointmentsTable&\Cake\ORM\Association\HasMany $Appointments
  *
  * @method \App\Model\Entity\Doctor newEmptyEntity()
  * @method \App\Model\Entity\Doctor newEntity(array $data, array $options = [])
@@ -47,7 +47,7 @@ class DoctorsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Appointpents', [
+        $this->hasMany('Appointments', [
             'foreignKey' => 'doctor_id',
         ]);
     }
@@ -71,6 +71,7 @@ class DoctorsTable extends Table
             ->notEmptyString('name');
 
         $validator
+            ->boolean('accepting_patiens')
             ->notEmptyString('accepting_patiens');
 
         return $validator;

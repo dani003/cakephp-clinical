@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -14,10 +15,11 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Clinic Management Sysdtem with cakephp';
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +27,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
@@ -35,14 +36,27 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
+
 <body>
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+            <a href="<?= $this->Url->build('/') ?>"><span>Clinical</span>Management</a>
         </div>
-        <div class="top-nav-links">
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
+
+        <ul class="left">
+            <a><?= $this->HTML->link(__('Patients'), ['controller' => 'patients', 'action' => 'index']) ?></a>
+            <a><?= $this->HTML->link(__('Doctors'), ['controller' => 'doctors', 'action' => 'index']) ?></a>
+            <a><?= $this->HTML->link(__('Appointments'), ['controller' => 'appointments', 'action' => 'index']) ?></a>
+            <a><?= $this->HTML->link(__('Carriers'), ['controller' => 'carriers', 'action' => 'index']) ?></a>
+            <a><?= $this->HTML->link(__('Invoices'), ['controller' => 'invoices', 'action' => 'index']) ?></a>
+
+        </ul>
+
+
+        <div class="right">
+            <a><?= $this->HTML->link(__('Manages User'), ['controller' => 'Users', 'action' => 'index']) ?></a>
+            <a><?= $this->HTML->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></a>
+
         </div>
     </nav>
     <main class="main">
@@ -54,4 +68,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <footer>
     </footer>
 </body>
+
 </html>

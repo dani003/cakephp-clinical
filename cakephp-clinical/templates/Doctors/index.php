@@ -23,7 +23,7 @@
                 <tr>
                     <td><?= $this->Number->format($doctor->id) ?></td>
                     <td><?= h($doctor->name) ?></td>
-                    <td><?= $this->Number->format($doctor->accepting_patiens) ?></td>
+                    <td><?= h($doctor->accepting_patiens) ?></td>
                     <td><?= h($doctor->created) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $doctor->id]) ?>

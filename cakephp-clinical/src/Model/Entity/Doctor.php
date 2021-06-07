@@ -10,10 +10,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property int $accepting_patiens
+ * @property bool $accepting_patiens
  * @property \Cake\I18n\FrozenTime $created
  *
- * @property \App\Model\Entity\Appointpent[] $appointpents
+ * @property \App\Model\Entity\Appointment[] $appointments
  */
 class Doctor extends Entity
 {
@@ -30,6 +30,6 @@ class Doctor extends Entity
         'name' => true,
         'accepting_patiens' => true,
         'created' => true,
-        'appointpents' => true,
+        'appointments' => true,
     ];
 }

@@ -27,17 +27,17 @@
                     <td><?= $this->Number->format($doctor->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Accepting Patiens') ?></th>
-                    <td><?= $this->Number->format($doctor->accepting_patiens) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($doctor->created) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Accepting Patiens') ?></th>
+                    <td><?= $doctor->accepting_patiens ? __('Yes') : __('No'); ?></td>
+                </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Appointpents') ?></h4>
-                <?php if (!empty($doctor->appointpents)) : ?>
+                <h4><?= __('Related Appointments') ?></h4>
+                <?php if (!empty($doctor->appointments)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
@@ -48,17 +48,17 @@
                             <th><?= __('Created') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($doctor->appointpents as $appointpents) : ?>
+                        <?php foreach ($doctor->appointments as $appointments) : ?>
                         <tr>
-                            <td><?= h($appointpents->id) ?></td>
-                            <td><?= h($appointpents->patient_id) ?></td>
-                            <td><?= h($appointpents->doctor_id) ?></td>
-                            <td><?= h($appointpents->appointment_date) ?></td>
-                            <td><?= h($appointpents->created) ?></td>
+                            <td><?= h($appointments->id) ?></td>
+                            <td><?= h($appointments->patient_id) ?></td>
+                            <td><?= h($appointments->doctor_id) ?></td>
+                            <td><?= h($appointments->appointment_date) ?></td>
+                            <td><?= h($appointments->created) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Appointpents', 'action' => 'view', $appointpents->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Appointpents', 'action' => 'edit', $appointpents->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Appointpents', 'action' => 'delete', $appointpents->id], ['confirm' => __('Are you sure you want to delete # {0}?', $appointpents->id)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Appointments', 'action' => 'view', $appointments->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Appointments', 'action' => 'edit', $appointments->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Appointments', 'action' => 'delete', $appointments->id], ['confirm' => __('Are you sure you want to delete # {0}?', $appointments->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
