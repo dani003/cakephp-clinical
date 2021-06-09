@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Doctor[]|\Cake\Collection\CollectionInterface $doctors
@@ -19,18 +20,24 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($doctors as $doctor): ?>
-                <tr>
-                    <td><?= $this->Number->format($doctor->id) ?></td>
-                    <td><?= h($doctor->name) ?></td>
-                    <td><?= h($doctor->accepting_patiens) ?></td>
-                    <td><?= h($doctor->created) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $doctor->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $doctor->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $doctor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $doctor->id)]) ?>
-                    </td>
-                </tr>
+                <?php foreach ($doctors as $doctor) : ?>
+                    <tr>
+                        <td><?= $this->Number->format($doctor->id) ?></td>
+                        <td><?= h($doctor->name) ?></td>
+                        <td>
+                            <?php if ($doctor->accepting_patiens == 1) : ?>
+                                <span style="color:green ">Yes </span>
+                            <?php else : ?>
+                                <span style="color:red ">No </span>
+                            <?php endif; ?>
+                        </td>
+                        <td><?= h($doctor->created) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $doctor->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $doctor->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $doctor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $doctor->id)]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

@@ -42,7 +42,7 @@ $cakeDescription = 'Clinic Management Sysdtem with cakephp';
         <div class="top-nav-title">
             <a href="<?= $this->Url->build('/') ?>"><span>Clinical</span>Management</a>
         </div>
-
+        <?php if($logedIn): ?>
         <ul class="left">
             <a><?= $this->HTML->link(__('Patients'), ['controller' => 'patients', 'action' => 'index']) ?></a>
             <a><?= $this->HTML->link(__('Doctors'), ['controller' => 'doctors', 'action' => 'index']) ?></a>
@@ -58,6 +58,8 @@ $cakeDescription = 'Clinic Management Sysdtem with cakephp';
             <a><?= $this->HTML->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></a>
 
         </div>
+
+        <?php endif; ?>
     </nav>
     <main class="main">
         <div class="container">

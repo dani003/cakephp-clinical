@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -36,7 +37,7 @@ class PatientsController extends AppController
     public function view($id = null)
     {
         $patient = $this->Patients->get($id, [
-            'contain' => ['Carriers', 'Appointpents', 'Invoices'],
+            'contain' => ['Carriers', 'Appointments', 'Invoices'],
         ]);
 
         $this->set(compact('patient'));

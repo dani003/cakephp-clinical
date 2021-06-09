@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Patients Model
  *
  * @property \App\Model\Table\CarriersTable&\Cake\ORM\Association\BelongsTo $Carriers
- * @property \App\Model\Table\AppointpentsTable&\Cake\ORM\Association\HasMany $Appointpents
  * @property \App\Model\Table\InvoicesTable&\Cake\ORM\Association\HasMany $Invoices
  *
  * @method \App\Model\Entity\Patient newEmptyEntity()
@@ -53,7 +52,7 @@ class PatientsTable extends Table
             'foreignKey' => 'carrier_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Appointpents', [
+        $this->hasMany('Appointments', [
             'foreignKey' => 'patient_id',
         ]);
         $this->hasMany('Invoices', [

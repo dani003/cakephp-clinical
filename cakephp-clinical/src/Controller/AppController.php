@@ -44,10 +44,32 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
+        $this->loadComponent('Auth', [
+            'authenticate' =>[
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' =>[
+                'controller' => 'Users',
+                'action' => 'login'
+            ]
+        ]);
+
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+
+        //Check login
+        if($this->getRequest()->getSession()->read('Auth.User')){
+            $this->set('logedIn', true);
+        }else{
+            $this->set('logedIn', false);
+        }
     }
 }

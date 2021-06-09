@@ -105,5 +105,23 @@ class UsersController extends AppController
     }
 
     public function logout()
-    { }
+    {
+        $this->Flash->success('Logout Successful !');
+        $this->redirect($this->Auth->logout());
+     }
+
+    public function login()
+    {
+        if($this->request->is('post')){
+            $user = $this->Auth->identify();
+            if($user){
+                $this->Auth->setUser($user);
+                $this->Flash->success('Login Successful');
+                $this->redirect($this->Auth->redirectUrl());
+            }else{
+                $this->Flash->error(__('Login Fail!'));
+            }
+        }
+
+    }
 }

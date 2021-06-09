@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -18,7 +19,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  *
  * @property \App\Model\Entity\Carrier $carrier
- * @property \App\Model\Entity\Appointpent[] $appointpents
+ * @property \App\Model\Entity\Appointment[] $appointments
  * @property \App\Model\Entity\Invoice[] $invoices
  */
 class Patient extends Entity
@@ -41,7 +42,7 @@ class Patient extends Entity
         'zipcode' => true,
         'created' => true,
         'carrier' => true,
-        'appointpents' => true,
+        'appointments' => true,
         'invoices' => true,
     ];
 }

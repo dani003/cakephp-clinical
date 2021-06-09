@@ -50,7 +50,7 @@ class PatientsFixture extends TestFixture
                 'address' => 'Lorem ipsum dolor sit amet',
                 'city' => 'Lorem ipsum dolor sit amet',
                 'zipcode' => 'Lorem ipsum dolor sit amet',
-                'created' => '2021-06-06 23:23:56',
+                'created' => '2021-06-07 14:36:14',
             ],
         ];
         parent::init();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Invoice $invoice
@@ -7,8 +8,7 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Invoices'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Element('actions', array('type' => 'Invoice', 'types' => 'Invoices')); ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -17,10 +17,10 @@
             <fieldset>
                 <legend><?= __('Add Invoice') ?></legend>
                 <?php
-                    echo $this->Form->control('patient_id', ['options' => $patients]);
-                    echo $this->Form->control('amount');
-                    echo $this->Form->control('service');
-                    echo $this->Form->control('due');
+                echo $this->Form->control('patient_id', ['options' => $patients]);
+                echo $this->Form->control('amount');
+                echo $this->Form->control('service');
+                echo $this->Form->control('due');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

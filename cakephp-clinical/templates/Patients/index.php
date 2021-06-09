@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Patient[]|\Cake\Collection\CollectionInterface $patients
@@ -18,27 +19,25 @@
                     <th><?= $this->Paginator->sort('address') ?></th>
                     <th><?= $this->Paginator->sort('city') ?></th>
                     <th><?= $this->Paginator->sort('zipcode') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($patients as $patient): ?>
-                <tr>
-                    <td><?= $this->Number->format($patient->id) ?></td>
-                    <td><?= $patient->has('carrier') ? $this->Html->link($patient->carrier->name, ['controller' => 'Carriers', 'action' => 'view', $patient->carrier->id]) : '' ?></td>
-                    <td><?= h($patient->name) ?></td>
-                    <td><?= h($patient->phone) ?></td>
-                    <td><?= h($patient->address) ?></td>
-                    <td><?= h($patient->city) ?></td>
-                    <td><?= h($patient->zipcode) ?></td>
-                    <td><?= h($patient->created) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $patient->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $patient->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $patient->id], ['confirm' => __('Are you sure you want to delete # {0}?', $patient->id)]) ?>
-                    </td>
-                </tr>
+                <?php foreach ($patients as $patient) : ?>
+                    <tr>
+                        <td><?= $this->Number->format($patient->id) ?></td>
+                        <td><?= $patient->has('carrier') ? $this->Html->link($patient->carrier->name, ['controller' => 'Carriers', 'action' => 'view', $patient->carrier->id]) : '' ?></td>
+                        <td><?= h($patient->name) ?></td>
+                        <td><?= h($patient->phone) ?></td>
+                        <td><?= h($patient->address) ?></td>
+                        <td><?= h($patient->city) ?></td>
+                        <td><?= h($patient->zipcode) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $patient->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $patient->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $patient->id], ['confirm' => __('Are you sure you want to delete # {0}?', $patient->id)]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
